@@ -19,6 +19,9 @@ mongoose
     .catch((err) => console.log(err));
 
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 app.get('/', (req, res) => {
     res.render("index.ejs", { shortUrl: null })
 })
@@ -29,6 +32,4 @@ app.get('/:shortCode', getOriginalUrl)
 
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, (req, res) => {
-    console.log(`Server Started at PORT ${3000}`)
-})
+export default app;
